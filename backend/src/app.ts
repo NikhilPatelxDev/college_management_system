@@ -1,4 +1,5 @@
 import express, { Express, Request, Response } from "express";
+import appRoutes from "./routes/index.js";
 
 const app: Express = express();
 
@@ -14,5 +15,8 @@ app.get("/api/v1/health", (_: Request, res: Response) => {
     timestamp: new Date().toLocaleString(),
   });
 });
+
+// App routes
+app.use("/api/v1", appRoutes);
 
 export default app;
